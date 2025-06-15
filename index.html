@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños, Camila!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/stardust.png'), linear-gradient(black, midnightblue);
+            background-size: cover;
+            text-align: center;
+            padding: 50px;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .card {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #ffcc00;
+        }
+
+        #typed {
+            font-size: 18px;
+            color: #fff;
+            white-space: pre-line;
+        }
+
+        .start-button {
+            background-color: #ffcc00;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🎆 ¡Feliz Cumpleaños, Camila! 🎆</h1>
+        <p id="typed"></p>
+        <button class="start-button" onclick="startExperience()">🎶 ¡Iniciar celebración!</button>
+    </div>
+
+    <audio id="audio" loop playsinline>
+        <source src="https://mgqc1228.github.io/Music/las_manianitas.mp3" type="audio/mp3">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <script>
+        function startExperience() {
+            startAudio();
+            typeEffect();
+        }
+
+        function startAudio() {
+            const audio = document.getElementById("audio");
+            audio.muted = false;
+            audio.play().catch(error => console.log("El navegador bloqueó el autoplay:", error));
+        }
+
+        document.addEventListener("touchstart", () => {
+            startExperience();
+        }, { once: true });
+
+        const text = "Hoy es un día especial porque celebramos a alguien increíble.\nEspero que la vida te siga llenando de momentos felices,\nsueños cumplidos y muchas razones para sonreír.";
+        let i = 0;
+
+        function typeEffect() {
+            if (i < text.length) {
+                document.getElementById("typed").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeEffect, 50);
+            }
+        }
+    </script>
+</body>
+</html>
