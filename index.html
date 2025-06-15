@@ -60,8 +60,8 @@
 </head>
 <body>
     <!-- Fondo de video -->
-    <video autoplay loop muted playsinline id="background-video">
-        <source src="https://mgqc1228.github.io/Video/cielo_estrellado1.mp4" type="video/mp4">
+    <video id="background-video" autoplay loop muted playsinline poster="" onclick="startVideo()">
+        <source src="https://mgqc1228.github.io/Video/cielo_estrellado.mp4" type="video/mp4">
         Tu navegador no soporta video.
     </video>
 
@@ -79,6 +79,7 @@
 
     <script>
         function startExperience() {
+            startVideo();
             startAudio();
             typeEffect();
         }
@@ -87,6 +88,11 @@
             const audio = document.getElementById("audio");
             audio.muted = false;
             audio.play().catch(error => console.log("El navegador bloqueó el autoplay:", error));
+        }
+
+        function startVideo() {
+            const video = document.getElementById("background-video");
+            video.play().catch(error => console.log("El navegador bloqueó el autoplay:", error));
         }
 
         document.addEventListener("touchstart", () => {
