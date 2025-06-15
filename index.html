@@ -5,17 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños, Camila!</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/stardust.png'), linear-gradient(black, midnightblue);
-            background-size: cover;
-            text-align: center;
-            padding: 50px;
-            color: #fff;
+        body, html {
+            margin: 0;
+            padding: 0;
             overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
 
         .card {
+            position: relative;
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
             border-radius: 10px;
@@ -23,6 +32,8 @@
             display: inline-block;
             max-width: 500px;
             margin: auto;
+            color: #fff;
+            text-align: center;
         }
 
         h1 {
@@ -48,12 +59,19 @@
     </style>
 </head>
 <body>
+    <!-- Fondo de video -->
+    <video autoplay loop muted playsinline id="background-video">
+        <source src="https://mgqc1228.github.io/Video/cielo_estrellado.mp4" type="video/mp4">
+        Tu navegador no soporta video.
+    </video>
+
     <div class="card">
         <h1>🎆 ¡Feliz Cumpleaños, Camila! 🎆</h1>
         <p id="typed"></p>
         <button class="start-button" onclick="startExperience()">🎶 ¡Iniciar celebración!</button>
     </div>
 
+    <!-- Audio -->
     <audio id="audio" loop playsinline>
         <source src="https://mgqc1228.github.io/Music/las_manianitas.mp3" type="audio/mp3">
         Tu navegador no soporta audio.
@@ -88,3 +106,5 @@
     </script>
 </body>
 </html>
+
+
